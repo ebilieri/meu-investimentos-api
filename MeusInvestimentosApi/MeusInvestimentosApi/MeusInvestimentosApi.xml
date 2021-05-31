@@ -4,5 +4,322 @@
         <name>MeusInvestimentosApi</name>
     </assembly>
     <members>
+        <member name="T:MeusInvestimentosApi.ConfigApi">
+            <summary>
+            Class to handle with environment variables 
+            </summary>
+        </member>
+        <member name="P:MeusInvestimentosApi.ConfigApi.TesouroDiretoBaseURL">
+            <summary>
+            Tesouro direto Url
+            </summary>
+        </member>
+        <member name="P:MeusInvestimentosApi.ConfigApi.RendaFixaBaseURL">
+            <summary>
+            Renda fixa URL
+            </summary>
+        </member>
+        <member name="P:MeusInvestimentosApi.ConfigApi.FundosBaseURL">
+            <summary>
+            Fundos URL
+            </summary>
+        </member>
+        <member name="T:MeusInvestimentosApi.Controllers.DashboardController">
+            <summary>
+            DashBoard Controller
+            </summary>
+        </member>
+        <member name="T:MeusInvestimentosApi.Models.Fundo">
+            <summary>
+            Class to handle with Fundos de investimentos
+            </summary>
+        </member>
+        <member name="P:MeusInvestimentosApi.Models.Fundo.Fundos">
+            <summary>
+            A List items Fundos
+            </summary>
+        </member>
+        <member name="T:MeusInvestimentosApi.Models.FundoItem">
+            <summary>
+            Class to handler with itens de fundos
+            </summary>
+        </member>
+        <member name="P:MeusInvestimentosApi.Models.FundoItem.CapitalInvestido">
+            <summary>
+            Capital Investido
+            </summary>
+        </member>
+        <member name="P:MeusInvestimentosApi.Models.FundoItem.ValorAtual">
+            <summary>
+            Valor Atual
+            </summary>
+        </member>
+        <member name="P:MeusInvestimentosApi.Models.FundoItem.DataResgate">
+            <summary>
+            Data de Resgate
+            </summary>
+        </member>
+        <member name="P:MeusInvestimentosApi.Models.FundoItem.DataCompra">
+            <summary>
+            Data de Compra
+            </summary>
+        </member>
+        <member name="P:MeusInvestimentosApi.Models.FundoItem.Iof">
+            <summary>
+            IOF
+            </summary>
+        </member>
+        <member name="P:MeusInvestimentosApi.Models.FundoItem.Nome">
+            <summary>
+            Nome
+            </summary>
+        </member>
+        <member name="P:MeusInvestimentosApi.Models.FundoItem.TotalTaxas">
+            <summary>
+            Total de Taxas
+            </summary>
+        </member>
+        <member name="P:MeusInvestimentosApi.Models.FundoItem.Quantity">
+            <summary>
+            Quantidade
+            </summary>
+        </member>
+        <member name="T:MeusInvestimentosApi.Models.Investimento">
+            <summary>
+            Class to handle with investimentos
+            </summary>
+        </member>
+        <member name="P:MeusInvestimentosApi.Models.Investimento.ValorTotal">
+            <summary>
+            Valor Total Investido
+            </summary>
+        </member>
+        <member name="P:MeusInvestimentosApi.Models.Investimento.Investimentos">
+            <summary>
+            A List items Investimentos
+            </summary>
+        </member>
+        <member name="T:MeusInvestimentosApi.Models.InvestimentoItem">
+            <summary>
+            Class to handle with Investimentos items
+            </summary>
+        </member>
+        <member name="P:MeusInvestimentosApi.Models.InvestimentoItem.Nome">
+            <summary>
+            Nome Investimento
+            </summary>
+        </member>
+        <member name="P:MeusInvestimentosApi.Models.InvestimentoItem.ValorInvestido">
+            <summary>
+            Valor Investido
+            </summary>
+        </member>
+        <member name="P:MeusInvestimentosApi.Models.InvestimentoItem.ValorTotal">
+            <summary>
+            Valor Total
+            </summary>
+        </member>
+        <member name="P:MeusInvestimentosApi.Models.InvestimentoItem.Vencimento">
+            <summary>
+            Data de vencimento
+            </summary>
+        </member>
+        <member name="P:MeusInvestimentosApi.Models.InvestimentoItem.Ir">
+            <summary>
+            IR
+            </summary>
+        </member>
+        <member name="P:MeusInvestimentosApi.Models.InvestimentoItem.ValorResgate">
+            <summary>
+            Valor de Resgate
+            </summary>
+        </member>
+        <member name="T:MeusInvestimentosApi.Models.RendaFixa">
+            <summary>
+            Class to handle with Renda Fixa
+            </summary>
+        </member>
+        <member name="P:MeusInvestimentosApi.Models.RendaFixa.Lcis">
+            <summary>
+            A list items LCIs
+            </summary>
+        </member>
+        <member name="T:MeusInvestimentosApi.Models.RendaFixaLci">
+            <summary>
+            Class to handle with LCI
+            </summary>
+        </member>
+        <member name="P:MeusInvestimentosApi.Models.RendaFixaLci.CapitalInvestido">
+            <summary>
+            Capital investido
+            </summary>
+        </member>
+        <member name="P:MeusInvestimentosApi.Models.RendaFixaLci.CapitalAtual">
+            <summary>
+            Capital atual
+            </summary>
+        </member>
+        <member name="P:MeusInvestimentosApi.Models.RendaFixaLci.Quantidade">
+            <summary>
+            Quantidade
+            </summary>
+        </member>
+        <member name="P:MeusInvestimentosApi.Models.RendaFixaLci.Vencimento">
+            <summary>
+            Vencimento
+            </summary>
+        </member>
+        <member name="P:MeusInvestimentosApi.Models.RendaFixaLci.Iof">
+            <summary>
+            IOF
+            </summary>
+        </member>
+        <member name="P:MeusInvestimentosApi.Models.RendaFixaLci.OutrasTaxas">
+            <summary>
+            Outras Taxas
+            </summary>
+        </member>
+        <member name="P:MeusInvestimentosApi.Models.RendaFixaLci.Taxas">
+            <summary>
+            Taxas
+            </summary>
+        </member>
+        <member name="P:MeusInvestimentosApi.Models.RendaFixaLci.Indice">
+            <summary>
+            Indice
+            </summary>
+        </member>
+        <member name="P:MeusInvestimentosApi.Models.RendaFixaLci.Tipo">
+            <summary>
+            Tipo
+            </summary>
+        </member>
+        <member name="P:MeusInvestimentosApi.Models.RendaFixaLci.Nome">
+            <summary>
+            Nome
+            </summary>
+        </member>
+        <member name="P:MeusInvestimentosApi.Models.RendaFixaLci.GuarantidoFgc">
+            <summary>
+            Garantido pleo FGC
+            </summary>
+        </member>
+        <member name="P:MeusInvestimentosApi.Models.RendaFixaLci.DataOperacao">
+            <summary>
+            Data da operação
+            </summary>
+        </member>
+        <member name="P:MeusInvestimentosApi.Models.RendaFixaLci.PrecoUnitario">
+            <summary>
+            Preço Unitario
+            </summary>
+        </member>
+        <member name="P:MeusInvestimentosApi.Models.RendaFixaLci.Primario">
+            <summary>
+            Primario
+            </summary>
+        </member>
+        <member name="T:MeusInvestimentosApi.Models.TesouroDireto">
+            <summary>
+            Class to handle with Tesouro Direto
+            </summary>
+        </member>
+        <member name="P:MeusInvestimentosApi.Models.TesouroDireto.Tds">
+            <summary>
+            A List Tesouro direto
+            </summary>
+        </member>
+        <member name="T:MeusInvestimentosApi.Models.TesouroDiretoItem">
+            <summary>
+            Class to handle with Tesouro Direto Items
+            </summary>
+        </member>
+        <member name="P:MeusInvestimentosApi.Models.TesouroDiretoItem.ValorInvestido">
+            <summary>
+            Valor Investido
+            </summary>
+        </member>
+        <member name="P:MeusInvestimentosApi.Models.TesouroDiretoItem.ValorTotal">
+            <summary>
+            Valor Total
+            </summary>
+        </member>
+        <member name="P:MeusInvestimentosApi.Models.TesouroDiretoItem.Vencimento">
+            <summary>
+            Data de Vencimento
+            </summary>
+        </member>
+        <member name="P:MeusInvestimentosApi.Models.TesouroDiretoItem.DataDeCompra">
+            <summary>
+            Data de Compra
+            </summary>
+        </member>
+        <member name="P:MeusInvestimentosApi.Models.TesouroDiretoItem.Iof">
+            <summary>
+            IOF
+            </summary>
+        </member>
+        <member name="P:MeusInvestimentosApi.Models.TesouroDiretoItem.Indice">
+            <summary>
+            Indice
+            </summary>
+        </member>
+        <member name="P:MeusInvestimentosApi.Models.TesouroDiretoItem.Tipo">
+            <summary>
+            Tipo
+            </summary>
+        </member>
+        <member name="P:MeusInvestimentosApi.Models.TesouroDiretoItem.Nome">
+            <summary>
+            Nome
+            </summary>
+        </member>
+        <member name="T:MeusInvestimentosApi.Program">
+            <summary>
+            Class Program
+            </summary>
+        </member>
+        <member name="M:MeusInvestimentosApi.Program.Main(System.String[])">
+            <summary>
+            Main
+            </summary>
+            <param name="args"></param>
+        </member>
+        <member name="M:MeusInvestimentosApi.Program.CreateHostBuilder(System.String[])">
+            <summary>
+            Builder
+            </summary>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MeusInvestimentosApi.Startup">
+            <summary>
+            Startup Class
+            </summary>
+        </member>
+        <member name="M:MeusInvestimentosApi.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Csonstructor
+            </summary>
+            <param name="configuration"></param>
+        </member>
+        <member name="P:MeusInvestimentosApi.Startup.Configuration">
+            <summary>
+            Configuration
+            </summary>
+        </member>
+        <member name="M:MeusInvestimentosApi.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            This method gets called by the runtime. Use this method to add services to the container.
+            </summary>
+            <param name="services"></param>
+        </member>
+        <member name="M:MeusInvestimentosApi.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+            This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+            </summary>
+            <param name="app"></param>
+            <param name="env"></param>
+        </member>
     </members>
 </doc>

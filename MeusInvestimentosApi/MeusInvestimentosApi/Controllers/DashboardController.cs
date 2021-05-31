@@ -1,14 +1,14 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace MeusInvestimentosApi.Controllers
 {
+    /// <summary>
+    /// DashBoard Controller
+    /// </summary>
     public class DashboardController : ControllerBase
     {
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
             return Ok();
         }
