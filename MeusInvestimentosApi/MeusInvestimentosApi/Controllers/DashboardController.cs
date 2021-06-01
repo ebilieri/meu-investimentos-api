@@ -27,7 +27,7 @@ namespace MeusInvestimentosApi.Controllers
         [HttpGet]
         public async Task<IActionResult> Index()
         {
-            var tesouro = await _tesouroDiretoService.ObterTesouroDiretoCalculado();
+            var tesouro = await _tesouroDiretoService.ObterTesouroDireto();
             var rendaFixa = await _rendaFixaService.ObterRendaFixa();
             var fundos = await _fundosDiretoService.ObterFundos();
             return Ok(tesouro);

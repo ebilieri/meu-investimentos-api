@@ -5,6 +5,6 @@ namespace MeusInvestimentosApi.Services
 {
     public interface IFundosService
     {
-        Task<Fundo> ObterFundos();
+        Task<Investimento> ObterFundos();
     }
 }

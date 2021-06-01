@@ -23,7 +23,7 @@ namespace MeusInvestimentosApi.Services
         public async Task<Investimento> ObterInvestimentos()
         {
 
-            var tesouro = await _tesouroDiretoService.ObterTesouroDiretoCalculado();
+            var tesouro = await _tesouroDiretoService.ObterTesouroDireto();
             var rendaFixa = await _rendaFixaService.ObterRendaFixa();
             var fundos = await _fundosDiretoService.ObterFundos();
 

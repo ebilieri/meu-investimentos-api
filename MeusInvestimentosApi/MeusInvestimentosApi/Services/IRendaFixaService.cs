@@ -5,6 +5,6 @@ namespace MeusInvestimentosApi.Services
 {
     public interface IRendaFixaService
     {
-        Task<RendaFixa> ObterRendaFixa();
+        Task<Investimento> ObterRendaFixa();
     }
 }

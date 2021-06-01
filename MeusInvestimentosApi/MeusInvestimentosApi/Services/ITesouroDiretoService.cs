@@ -12,6 +12,6 @@ namespace MeusInvestimentosApi.Services
         /// 
         /// </summary>
         /// <returns></returns>
-        Task<Investimento> ObterTesouroDiretoCalculado();
+        Task<Investimento> ObterTesouroDireto();
     }
 }
