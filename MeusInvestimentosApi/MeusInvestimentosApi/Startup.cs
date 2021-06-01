@@ -1,3 +1,4 @@
+using MeusInvestimentosApi.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -8,6 +9,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System;
 using System.IO;
+using System.Net.Http;
 using System.Reflection;
 
 namespace MeusInvestimentosApi
@@ -76,6 +78,12 @@ namespace MeusInvestimentosApi
 
             services.Configure<ConfigApi>(Configuration.GetSection("Program"));
             var apiConfig = Configuration.GetSection("Program").Get<ConfigApi>();
+
+            services.AddSingleton<HttpClient>();
+            services.AddSingleton(typeof(BaseService<>));
+            services.AddSingleton<IFundosService, FundosService>();
+            services.AddSingleton<IRendaFixaService, RendaFixaService>();
+            services.AddSingleton<ITesouroDiretoService, TesouroDiretoService>();
         }
 
         /// <summary>

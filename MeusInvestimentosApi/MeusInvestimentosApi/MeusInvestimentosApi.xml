@@ -24,6 +24,16 @@
             Fundos URL
             </summary>
         </member>
+        <member name="P:MeusInvestimentosApi.ConfigApi.AbsoluteExpirationRelativeToNow">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MeusInvestimentosApi.ConfigApi.SlidingExpiration">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="T:MeusInvestimentosApi.Controllers.DashboardController">
             <summary>
             DashBoard Controller
@@ -290,6 +300,116 @@
             Builder
             </summary>
             <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MeusInvestimentosApi.Services.BaseService`1">
+            <summary>
+            Class Base service
+            </summary>
+            <typeparam name="TEntity"></typeparam>
+        </member>
+        <member name="M:MeusInvestimentosApi.Services.BaseService`1.#ctor(Microsoft.Extensions.Options.IOptions{MeusInvestimentosApi.ConfigApi},System.Net.Http.HttpClient)">
+            <summary>
+            
+            </summary>
+            <param name="config"></param>
+            <param name="httpClient"></param>
+        </member>
+        <member name="M:MeusInvestimentosApi.Services.BaseService`1.ObterInvestimento(System.String)">
+            <summary>
+            Obter lista de rend fixa
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MeusInvestimentosApi.Services.BaseService`1.CalcularIR(System.Decimal,System.Decimal)">
+            <summary>
+            
+            </summary>
+            <param name="redimento"></param>
+            <param name="taxa"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MeusInvestimentosApi.Services.BaseService`1.CalcularValorResgate(System.DateTime,System.DateTime,System.Decimal)">
+            <summary>
+            
+            </summary>
+            <param name="vencimento"></param>
+            <param name="dataDeCompra"></param>
+            <param name="valorTotal"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MeusInvestimentosApi.Services.FundosService">
+            <summary>
+            Class to handler with Tesouro direto
+            </summary>
+        </member>
+        <member name="M:MeusInvestimentosApi.Services.FundosService.#ctor(Microsoft.Extensions.Options.IOptions{MeusInvestimentosApi.ConfigApi},System.Net.Http.HttpClient,Microsoft.Extensions.Caching.Memory.IMemoryCache)">
+            <summary>
+            
+            </summary>
+            <param name="config"></param>
+            <param name="httpClient"></param>
+            <param name="cache"></param>
+        </member>
+        <member name="M:MeusInvestimentosApi.Services.FundosService.ObterFundos">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:MeusInvestimentosApi.Services.ITesouroDiretoService">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MeusInvestimentosApi.Services.ITesouroDiretoService.ObterTesouroDiretoCalculado">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:MeusInvestimentosApi.Services.RendaFixaService">
+            <summary>
+            Class to handler with Tesouro direto
+            </summary>
+        </member>
+        <member name="M:MeusInvestimentosApi.Services.RendaFixaService.#ctor(Microsoft.Extensions.Options.IOptions{MeusInvestimentosApi.ConfigApi},System.Net.Http.HttpClient,Microsoft.Extensions.Caching.Memory.IMemoryCache)">
+            <summary>
+            
+            </summary>
+            <param name="config"></param>
+            <param name="httpClient"></param>
+            <param name="cache"></param>
+        </member>
+        <member name="M:MeusInvestimentosApi.Services.RendaFixaService.ObterRendaFixa">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:MeusInvestimentosApi.Services.TesouroDiretoService">
+            <summary>
+            Class to handler with Tesouro direto
+            </summary>
+        </member>
+        <member name="M:MeusInvestimentosApi.Services.TesouroDiretoService.#ctor(Microsoft.Extensions.Options.IOptions{MeusInvestimentosApi.ConfigApi},System.Net.Http.HttpClient,Microsoft.Extensions.Caching.Memory.IMemoryCache)">
+            <summary>
+            
+            </summary>
+            <param name="config"></param>
+            <param name="httpClient"></param>
+            <param name="cache"></param>
+        </member>
+        <member name="M:MeusInvestimentosApi.Services.TesouroDiretoService.ObterTesouroDiretoCalculado">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MeusInvestimentosApi.Services.TesouroDiretoService.ObterTesouroDireto">
+            <summary>
+            
+            </summary>
             <returns></returns>
         </member>
         <member name="T:MeusInvestimentosApi.Startup">

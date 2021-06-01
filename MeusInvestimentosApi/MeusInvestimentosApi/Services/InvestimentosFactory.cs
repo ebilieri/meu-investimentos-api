@@ -1,21 +1,16 @@
-﻿using MeusInvestimentosApi.Services;
-using Microsoft.AspNetCore.Mvc;
+﻿using MeusInvestimentosApi.Models;
+using System;
 using System.Threading.Tasks;
 
-namespace MeusInvestimentosApi.Controllers
+namespace MeusInvestimentosApi.Services
 {
-    /// <summary>
-    /// DashBoard Controller
-    /// </summary>
-    [Route("api/[controller]")]
-    [ApiController]
-    public class DashboardController : ControllerBase
+    public class InvestimentosFactory
     {
         private readonly ITesouroDiretoService _tesouroDiretoService;
         private readonly IRendaFixaService _rendaFixaService;
         private readonly IFundosService _fundosDiretoService;
 
-        public DashboardController(ITesouroDiretoService tesouroDiretoService,
+        public InvestimentosFactory(ITesouroDiretoService tesouroDiretoService,
                                     IRendaFixaService rendaFixaService,
                                     IFundosService fundosDiretoService)
         {
@@ -24,13 +19,15 @@ namespace MeusInvestimentosApi.Controllers
             _fundosDiretoService = fundosDiretoService;
         }
 
-        [HttpGet]
-        public async Task<IActionResult> Index()
+
+        public async Task<Investimento> ObterInvestimentos()
         {
+
             var tesouro = await _tesouroDiretoService.ObterTesouroDiretoCalculado();
             var rendaFixa = await _rendaFixaService.ObterRendaFixa();
             var fundos = await _fundosDiretoService.ObterFundos();
-            return Ok(tesouro);
+
+            throw new NotImplementedException();
         }
     }
 }
