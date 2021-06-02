@@ -1,7 +1,5 @@
 ﻿using MeusInvestimentosApi.Models;
-using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Options;
-using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -14,7 +12,7 @@ namespace MeusInvestimentosApi.Services
     public class RendaFixaService : BaseService<RendaFixa>, IRendaFixaService
     {
         private readonly ConfigApi _config;
-        private readonly IMemoryCache _cache;
+        private readonly ICacheService _cache;
 
         /// <summary>
         /// 
@@ -24,7 +22,7 @@ namespace MeusInvestimentosApi.Services
         /// <param name="cache"></param>
         public RendaFixaService(IOptions<ConfigApi> config,
                                 HttpClient httpClient,
-                                IMemoryCache cache) : base(config, httpClient)
+                                ICacheService cache) : base(httpClient)
         {
             _cache = cache;
             _config = config?.Value;
@@ -39,21 +37,12 @@ namespace MeusInvestimentosApi.Services
         public async Task<Investimento> ObterRendaFixa()
         {
             string cacheKey = $"ObterRendaFixa";
-            var cacheEntry = _cache.GetOrCreate(cacheKey, entry =>
+            var rendaFixa = await _cache.GetFromCacheOrSource(cacheKey, () =>
             {
-                entry.AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(_config.AbsoluteExpirationRelativeToNow);
-                entry.SlidingExpiration = TimeSpan.FromMinutes(_config.SlidingExpiration);
-                entry.Priority = CacheItemPriority.High;
-
                 return ObterRendaFixaCalculadoLCI();
             });
 
-            if (await cacheEntry == null)
-            {
-                _cache.Remove(cacheKey);
-            }
-
-            return await cacheEntry;
+            return rendaFixa;
         }
 
 

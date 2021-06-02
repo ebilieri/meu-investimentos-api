@@ -34,7 +34,32 @@
             
             </summary>
         </member>
-        <member name="T:MeusInvestimentosApi.Controllers.DashboardController">
+        <member name="P:MeusInvestimentosApi.ConfigApi.TaxasIR">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MeusInvestimentosApi.TaxasIR">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MeusInvestimentosApi.TaxasIR.Fundos">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MeusInvestimentosApi.TaxasIR.LCI">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MeusInvestimentosApi.TaxasIR.TesouroDireto">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MeusInvestimentosApi.Controllers.InvestimentosController">
             <summary>
             DashBoard Controller
             </summary>
@@ -308,7 +333,7 @@
             </summary>
             <typeparam name="TEntity"></typeparam>
         </member>
-        <member name="M:MeusInvestimentosApi.Services.BaseService`1.#ctor(Microsoft.Extensions.Options.IOptions{MeusInvestimentosApi.ConfigApi},System.Net.Http.HttpClient)">
+        <member name="M:MeusInvestimentosApi.Services.BaseService`1.#ctor(System.Net.Http.HttpClient)">
             <summary>
             
             </summary>
@@ -338,12 +363,21 @@
             <param name="valorTotal"></param>
             <returns></returns>
         </member>
+        <member name="M:MeusInvestimentosApi.Services.CacheService.GetFromCacheOrSource``1(System.String,System.Func{System.Threading.Tasks.Task{``0}})">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="key"></param>
+            <param name="funcCache"></param>
+            <returns></returns>
+        </member>
         <member name="T:MeusInvestimentosApi.Services.FundosService">
             <summary>
             Class to handler with Tesouro direto
             </summary>
         </member>
-        <member name="M:MeusInvestimentosApi.Services.FundosService.#ctor(Microsoft.Extensions.Options.IOptions{MeusInvestimentosApi.ConfigApi},System.Net.Http.HttpClient,Microsoft.Extensions.Caching.Memory.IMemoryCache)">
+        <member name="M:MeusInvestimentosApi.Services.FundosService.#ctor(Microsoft.Extensions.Options.IOptions{MeusInvestimentosApi.ConfigApi},System.Net.Http.HttpClient,MeusInvestimentosApi.Services.ICacheService)">
             <summary>
             
             </summary>
@@ -357,12 +391,18 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:MeusInvestimentosApi.Services.FundosService.ObterFundosCalculado">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:MeusInvestimentosApi.Services.ITesouroDiretoService">
             <summary>
             
             </summary>
         </member>
-        <member name="M:MeusInvestimentosApi.Services.ITesouroDiretoService.ObterTesouroDiretoCalculado">
+        <member name="M:MeusInvestimentosApi.Services.ITesouroDiretoService.ObterTesouroDireto">
             <summary>
             
             </summary>
@@ -373,7 +413,7 @@
             Class to handler with Tesouro direto
             </summary>
         </member>
-        <member name="M:MeusInvestimentosApi.Services.RendaFixaService.#ctor(Microsoft.Extensions.Options.IOptions{MeusInvestimentosApi.ConfigApi},System.Net.Http.HttpClient,Microsoft.Extensions.Caching.Memory.IMemoryCache)">
+        <member name="M:MeusInvestimentosApi.Services.RendaFixaService.#ctor(Microsoft.Extensions.Options.IOptions{MeusInvestimentosApi.ConfigApi},System.Net.Http.HttpClient,MeusInvestimentosApi.Services.ICacheService)">
             <summary>
             
             </summary>
@@ -387,12 +427,18 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:MeusInvestimentosApi.Services.RendaFixaService.ObterRendaFixaCalculadoLCI">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:MeusInvestimentosApi.Services.TesouroDiretoService">
             <summary>
             Class to handler with Tesouro direto
             </summary>
         </member>
-        <member name="M:MeusInvestimentosApi.Services.TesouroDiretoService.#ctor(Microsoft.Extensions.Options.IOptions{MeusInvestimentosApi.ConfigApi},System.Net.Http.HttpClient,Microsoft.Extensions.Caching.Memory.IMemoryCache)">
+        <member name="M:MeusInvestimentosApi.Services.TesouroDiretoService.#ctor(Microsoft.Extensions.Options.IOptions{MeusInvestimentosApi.ConfigApi},System.Net.Http.HttpClient,MeusInvestimentosApi.Services.ICacheService)">
             <summary>
             
             </summary>
@@ -400,13 +446,13 @@
             <param name="httpClient"></param>
             <param name="cache"></param>
         </member>
-        <member name="M:MeusInvestimentosApi.Services.TesouroDiretoService.ObterTesouroDiretoCalculado">
+        <member name="M:MeusInvestimentosApi.Services.TesouroDiretoService.ObterTesouroDireto">
             <summary>
             
             </summary>
             <returns></returns>
         </member>
-        <member name="M:MeusInvestimentosApi.Services.TesouroDiretoService.ObterTesouroDireto">
+        <member name="M:MeusInvestimentosApi.Services.TesouroDiretoService.ObterTesouroDiretoCalculado">
             <summary>
             
             </summary>

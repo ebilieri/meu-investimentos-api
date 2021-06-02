@@ -1,6 +1,4 @@
-﻿using MeusInvestimentosApi.Models;
-using Microsoft.Extensions.Options;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using System;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -13,18 +11,16 @@ namespace MeusInvestimentosApi.Services
     /// <typeparam name="TEntity"></typeparam>
     public class BaseService<TEntity> where TEntity : class
     {
-        private readonly ConfigApi _config;
         private readonly HttpClient _httpClient;
+
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="config"></param>
         /// <param name="httpClient"></param>
-        public BaseService(IOptions<ConfigApi> config,
-                            HttpClient httpClient)
+        public BaseService(HttpClient httpClient)
         {
-            _config = config?.Value;
             _httpClient = httpClient;
         }
         /// <summary>
@@ -32,7 +28,7 @@ namespace MeusInvestimentosApi.Services
         /// </summary>
         /// <returns></returns>
         protected async Task<TEntity> ObterInvestimento(string uri)
-        {            
+        {
             var request = new HttpRequestMessage
             {
                 Method = HttpMethod.Get,

@@ -81,9 +81,11 @@ namespace MeusInvestimentosApi
 
             services.AddSingleton<HttpClient>();
             services.AddSingleton(typeof(BaseService<>));
+            services.AddSingleton<ICacheService, CacheService>();
             services.AddSingleton<IFundosService, FundosService>();
             services.AddSingleton<IRendaFixaService, RendaFixaService>();
             services.AddSingleton<ITesouroDiretoService, TesouroDiretoService>();
+            services.AddSingleton<IInvestimentosFactory, InvestimentosFactory>();
         }
 
         /// <summary>

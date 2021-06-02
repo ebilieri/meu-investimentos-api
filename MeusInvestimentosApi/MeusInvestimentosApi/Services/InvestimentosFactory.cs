@@ -1,10 +1,10 @@
 ﻿using MeusInvestimentosApi.Models;
-using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace MeusInvestimentosApi.Services
 {
-    public class InvestimentosFactory
+    public class InvestimentosFactory : IInvestimentosFactory
     {
         private readonly ITesouroDiretoService _tesouroDiretoService;
         private readonly IRendaFixaService _rendaFixaService;
@@ -27,7 +27,19 @@ namespace MeusInvestimentosApi.Services
             var rendaFixa = await _rendaFixaService.ObterRendaFixa();
             var fundos = await _fundosDiretoService.ObterFundos();
 
-            throw new NotImplementedException();
+            Investimento investimento = new Investimento
+            {
+                Investimentos = new List<InvestimentoItem>(),
+                ValorTotal = tesouro.ValorTotal + rendaFixa.ValorTotal + fundos.ValorTotal
+
+            };
+
+            investimento.Investimentos.AddRange(tesouro.Investimentos);
+            investimento.Investimentos.AddRange(rendaFixa.Investimentos);
+            investimento.Investimentos.AddRange(fundos.Investimentos);
+
+
+            return investimento;
         }
     }
 }
