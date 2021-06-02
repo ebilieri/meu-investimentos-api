@@ -42,6 +42,8 @@ namespace MeusInvestimentosApi.Services
                 return ObterFundosCalculado();
             });
 
+            if (fundos.Investimentos?.Count == 0) _cache.Remove(cacheKey);
+
             return fundos;
         }
 

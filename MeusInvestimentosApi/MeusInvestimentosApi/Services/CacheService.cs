@@ -27,7 +27,7 @@ namespace MeusInvestimentosApi.Services
         /// <returns></returns>
         public async Task<T> GetFromCacheOrSource<T>(string key, Func<Task<T>> funcCache)
         {
-            var cacheEntry = _cache.GetOrCreateAsync(key, f =>
+            return await _cache.GetOrCreateAsync(key, f =>
             {
                 f.AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(_config.AbsoluteExpirationRelativeToNow);
                 f.SlidingExpiration = TimeSpan.FromMinutes(_config.SlidingExpiration);
@@ -35,13 +35,15 @@ namespace MeusInvestimentosApi.Services
 
                 return funcCache();
             });
+        }
 
-            if (await cacheEntry == null)
-            {
-                _cache.Remove(key);
-            }
-
-            return await cacheEntry;
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="cacheKey"></param>
+        public void Remove(string cacheKey)
+        {
+            _cache.Remove(cacheKey);
         }
     }
 }

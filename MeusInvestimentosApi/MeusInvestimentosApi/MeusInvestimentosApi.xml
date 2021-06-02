@@ -372,6 +372,12 @@
             <param name="funcCache"></param>
             <returns></returns>
         </member>
+        <member name="M:MeusInvestimentosApi.Services.CacheService.Remove(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="cacheKey"></param>
+        </member>
         <member name="T:MeusInvestimentosApi.Services.FundosService">
             <summary>
             Class to handler with Tesouro direto

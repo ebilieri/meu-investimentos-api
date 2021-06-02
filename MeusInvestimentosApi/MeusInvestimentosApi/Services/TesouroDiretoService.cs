@@ -41,6 +41,8 @@ namespace MeusInvestimentosApi.Services
                 return ObterTesouroDiretoCalculado();
             });
 
+            if (tesouro.Investimentos?.Count == 0) _cache.Remove(cacheKey);
+
             return tesouro;
         }
 

@@ -7,6 +7,8 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
+using Polly;
+using Polly.Extensions.Http;
 using System;
 using System.IO;
 using System.Net.Http;
@@ -82,10 +84,19 @@ namespace MeusInvestimentosApi
             services.AddSingleton<HttpClient>();
             services.AddSingleton(typeof(BaseService<>));
             services.AddSingleton<ICacheService, CacheService>();
-            services.AddSingleton<IFundosService, FundosService>();
-            services.AddSingleton<IRendaFixaService, RendaFixaService>();
-            services.AddSingleton<ITesouroDiretoService, TesouroDiretoService>();
             services.AddSingleton<IInvestimentosFactory, InvestimentosFactory>();
+
+            services.AddHttpClient<ITesouroDiretoService, TesouroDiretoService>()
+                    .SetHandlerLifetime(TimeSpan.FromMinutes(1))
+                    .AddPolicyHandler(GetRetryPolicy());
+
+            services.AddHttpClient<IFundosService, FundosService>()
+                    .SetHandlerLifetime(TimeSpan.FromMinutes(1))
+                    .AddPolicyHandler(GetRetryPolicy());
+
+            services.AddHttpClient<IRendaFixaService, RendaFixaService>()
+                    .SetHandlerLifetime(TimeSpan.FromMinutes(1))
+                    .AddPolicyHandler(GetRetryPolicy());
         }
 
         /// <summary>
@@ -112,11 +123,20 @@ namespace MeusInvestimentosApi
             });
 
             app.UseSwagger();
-            
+
             app.UseSwaggerUI(c =>
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "Meus Investimentos Pessoais v1");
             });
+        }
+
+
+        private static IAsyncPolicy<HttpResponseMessage> GetRetryPolicy()
+        {
+            return HttpPolicyExtensions
+                .HandleTransientHttpError()
+                .OrResult(msg => msg.StatusCode == System.Net.HttpStatusCode.NotFound)
+                .WaitAndRetryAsync(5, retryAttempt => TimeSpan.FromSeconds(Math.Pow(2, retryAttempt)));
         }
     }
 }

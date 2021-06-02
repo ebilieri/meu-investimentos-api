@@ -42,6 +42,8 @@ namespace MeusInvestimentosApi.Services
                 return ObterRendaFixaCalculadoLCI();
             });
 
+            if (rendaFixa.Investimentos?.Count == 0) _cache.Remove(cacheKey);
+
             return rendaFixa;
         }
 

@@ -6,5 +6,6 @@ namespace MeusInvestimentosApi.Services
     public interface ICacheService
     {
         Task<T> GetFromCacheOrSource<T>(string key, Func<Task<T>> funcCache);
+        void Remove(string cacheKey);
     }
 }
