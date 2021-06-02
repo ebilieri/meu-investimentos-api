@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 using System;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -12,17 +13,20 @@ namespace MeusInvestimentosApi.Services
     public class BaseService<TEntity> where TEntity : class
     {
         private readonly HttpClient _httpClient;
+        private readonly ILogger _logger;
 
 
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="config"></param>
         /// <param name="httpClient"></param>
-        public BaseService(HttpClient httpClient)
+        /// <param name="logger"></param>
+        public BaseService(HttpClient httpClient, ILogger<TEntity> logger)
         {
             _httpClient = httpClient;
+            _logger = logger;
         }
+
         /// <summary>
         /// Obter lista de rend fixa
         /// </summary>
@@ -37,11 +41,15 @@ namespace MeusInvestimentosApi.Services
 
             var response = await _httpClient.SendAsync(request);
             string result = await response.Content.ReadAsStringAsync();
+
+            //_logger.LogInformation(response.);
+            _logger.LogInformation(result);
             if (response.IsSuccessStatusCode)
             {
                 var entity = JsonConvert.DeserializeObject<TEntity>(result);
                 return entity;
             }
+            
 
             return null;
         }

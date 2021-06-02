@@ -1,4 +1,5 @@
 ﻿using MeusInvestimentosApi.Models;
+using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using System.Collections.Generic;
 using System.Net.Http;
@@ -22,7 +23,8 @@ namespace MeusInvestimentosApi.Services
         /// <param name="cache"></param>
         public RendaFixaService(IOptions<ConfigApi> config,
                                 HttpClient httpClient,
-                                ICacheService cache) : base(httpClient)
+                                ILogger<RendaFixa> logger,
+                                ICacheService cache) : base(httpClient, logger)
         {
             _cache = cache;
             _config = config?.Value;

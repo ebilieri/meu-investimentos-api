@@ -64,6 +64,38 @@
             DashBoard Controller
             </summary>
         </member>
+        <member name="T:MeusInvestimentosApi.Extensions.CustomError">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MeusInvestimentosApi.Extensions.CustomError.Title">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MeusInvestimentosApi.Extensions.CustomError.Status">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MeusInvestimentosApi.Extensions.CustomError.ToString">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:MeusInvestimentosApi.Extensions.ExceptionMiddlewareExtensions">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MeusInvestimentosApi.Extensions.ExceptionMiddlewareExtensions.ConfigureExcpetionHandler(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
+            <summary>
+            
+            </summary>
+            <param name="app"></param>
+        </member>
         <member name="T:MeusInvestimentosApi.Models.Fundo">
             <summary>
             Class to handle with Fundos de investimentos
@@ -333,12 +365,12 @@
             </summary>
             <typeparam name="TEntity"></typeparam>
         </member>
-        <member name="M:MeusInvestimentosApi.Services.BaseService`1.#ctor(System.Net.Http.HttpClient)">
+        <member name="M:MeusInvestimentosApi.Services.BaseService`1.#ctor(System.Net.Http.HttpClient,Microsoft.Extensions.Logging.ILogger{`0})">
             <summary>
             
             </summary>
-            <param name="config"></param>
             <param name="httpClient"></param>
+            <param name="logger"></param>
         </member>
         <member name="M:MeusInvestimentosApi.Services.BaseService`1.ObterInvestimento(System.String)">
             <summary>
@@ -383,7 +415,7 @@
             Class to handler with Tesouro direto
             </summary>
         </member>
-        <member name="M:MeusInvestimentosApi.Services.FundosService.#ctor(Microsoft.Extensions.Options.IOptions{MeusInvestimentosApi.ConfigApi},System.Net.Http.HttpClient,MeusInvestimentosApi.Services.ICacheService)">
+        <member name="M:MeusInvestimentosApi.Services.FundosService.#ctor(Microsoft.Extensions.Options.IOptions{MeusInvestimentosApi.ConfigApi},System.Net.Http.HttpClient,Microsoft.Extensions.Logging.ILogger{MeusInvestimentosApi.Models.Fundo},MeusInvestimentosApi.Services.ICacheService)">
             <summary>
             
             </summary>
@@ -419,7 +451,7 @@
             Class to handler with Tesouro direto
             </summary>
         </member>
-        <member name="M:MeusInvestimentosApi.Services.RendaFixaService.#ctor(Microsoft.Extensions.Options.IOptions{MeusInvestimentosApi.ConfigApi},System.Net.Http.HttpClient,MeusInvestimentosApi.Services.ICacheService)">
+        <member name="M:MeusInvestimentosApi.Services.RendaFixaService.#ctor(Microsoft.Extensions.Options.IOptions{MeusInvestimentosApi.ConfigApi},System.Net.Http.HttpClient,Microsoft.Extensions.Logging.ILogger{MeusInvestimentosApi.Models.RendaFixa},MeusInvestimentosApi.Services.ICacheService)">
             <summary>
             
             </summary>
@@ -444,7 +476,7 @@
             Class to handler with Tesouro direto
             </summary>
         </member>
-        <member name="M:MeusInvestimentosApi.Services.TesouroDiretoService.#ctor(Microsoft.Extensions.Options.IOptions{MeusInvestimentosApi.ConfigApi},System.Net.Http.HttpClient,MeusInvestimentosApi.Services.ICacheService)">
+        <member name="M:MeusInvestimentosApi.Services.TesouroDiretoService.#ctor(Microsoft.Extensions.Options.IOptions{MeusInvestimentosApi.ConfigApi},System.Net.Http.HttpClient,Microsoft.Extensions.Logging.ILogger{MeusInvestimentosApi.Models.TesouroDireto},MeusInvestimentosApi.Services.ICacheService)">
             <summary>
             
             </summary>

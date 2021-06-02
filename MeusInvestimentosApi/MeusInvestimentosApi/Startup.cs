@@ -1,3 +1,4 @@
+using MeusInvestimentosApi.Extensions;
 using MeusInvestimentosApi.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -97,6 +98,9 @@ namespace MeusInvestimentosApi
             services.AddHttpClient<IRendaFixaService, RendaFixaService>()
                     .SetHandlerLifetime(TimeSpan.FromMinutes(1))
                     .AddPolicyHandler(GetRetryPolicy());
+
+
+            services.AddApplicationInsightsTelemetry();
         }
 
         /// <summary>
@@ -105,7 +109,7 @@ namespace MeusInvestimentosApi
         /// <param name="app"></param>
         /// <param name="env"></param>
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
-        {
+        {            
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -116,6 +120,8 @@ namespace MeusInvestimentosApi
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.ConfigureExcpetionHandler();
 
             app.UseEndpoints(endpoints =>
             {
