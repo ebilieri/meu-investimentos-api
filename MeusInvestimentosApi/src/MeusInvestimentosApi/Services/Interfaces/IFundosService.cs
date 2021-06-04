@@ -1,17 +1,17 @@
 ﻿using MeusInvestimentosApi.Models;
 using System.Threading.Tasks;
 
-namespace MeusInvestimentosApi.Services
+namespace MeusInvestimentosApi.Services.Interfaces
 {
     /// <summary>
     /// 
     /// </summary>
-    public interface ITesouroDiretoService
+    public interface IFundosService
     {
         /// <summary>
         /// 
         /// </summary>
         /// <returns></returns>
-        Task<Investimento> ObterTesouroDireto();
+        Task<Investimento> ObterFundos();
     }
 }

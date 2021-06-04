@@ -1,4 +1,5 @@
 ﻿using MeusInvestimentosApi.Models;
+using MeusInvestimentosApi.Services.Interfaces;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using System.Collections.Generic;
@@ -14,12 +15,13 @@ namespace MeusInvestimentosApi.Services
     {
         private readonly ConfigApi _config;
         private readonly ICacheService _cache;
-        
+
         /// <summary>
         /// 
         /// </summary>
         /// <param name="config"></param>
         /// <param name="httpClient"></param>
+        /// <param name="logger"></param>
         /// <param name="cache"></param>
         public TesouroDiretoService(IOptions<ConfigApi> config,
                                     HttpClient httpClient,

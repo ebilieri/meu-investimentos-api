@@ -64,6 +64,19 @@
             DashBoard Controller
             </summary>
         </member>
+        <member name="M:MeusInvestimentosApi.Controllers.InvestimentosController.#ctor(MeusInvestimentosApi.Services.Interfaces.IInvestimentosFactory,Microsoft.ApplicationInsights.TelemetryClient)">
+            <summary>
+            
+            </summary>
+            <param name="investimentosFactory"></param>
+            <param name="telemetry"></param>
+        </member>
+        <member name="M:MeusInvestimentosApi.Controllers.InvestimentosController.List">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:MeusInvestimentosApi.Extensions.CustomError">
             <summary>
             
@@ -395,6 +408,18 @@
             <param name="valorTotal"></param>
             <returns></returns>
         </member>
+        <member name="T:MeusInvestimentosApi.Services.CacheService">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MeusInvestimentosApi.Services.CacheService.#ctor(Microsoft.Extensions.Options.IOptions{MeusInvestimentosApi.ConfigApi},Microsoft.Extensions.Caching.Memory.IMemoryCache)">
+            <summary>
+            
+            </summary>
+            <param name="config"></param>
+            <param name="cache"></param>
+        </member>
         <member name="M:MeusInvestimentosApi.Services.CacheService.GetFromCacheOrSource``1(System.String,System.Func{System.Threading.Tasks.Task{``0}})">
             <summary>
             
@@ -415,12 +440,13 @@
             Class to handler with Tesouro direto
             </summary>
         </member>
-        <member name="M:MeusInvestimentosApi.Services.FundosService.#ctor(Microsoft.Extensions.Options.IOptions{MeusInvestimentosApi.ConfigApi},System.Net.Http.HttpClient,Microsoft.Extensions.Logging.ILogger{MeusInvestimentosApi.Models.Fundo},MeusInvestimentosApi.Services.ICacheService)">
+        <member name="M:MeusInvestimentosApi.Services.FundosService.#ctor(Microsoft.Extensions.Options.IOptions{MeusInvestimentosApi.ConfigApi},System.Net.Http.HttpClient,Microsoft.Extensions.Logging.ILogger{MeusInvestimentosApi.Models.Fundo},MeusInvestimentosApi.Services.Interfaces.ICacheService)">
             <summary>
             
             </summary>
             <param name="config"></param>
             <param name="httpClient"></param>
+            <param name="logger"></param>
             <param name="cache"></param>
         </member>
         <member name="M:MeusInvestimentosApi.Services.FundosService.ObterFundos">
@@ -435,12 +461,84 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="T:MeusInvestimentosApi.Services.ITesouroDiretoService">
+        <member name="T:MeusInvestimentosApi.Services.Interfaces.ICacheService">
             <summary>
             
             </summary>
         </member>
-        <member name="M:MeusInvestimentosApi.Services.ITesouroDiretoService.ObterTesouroDireto">
+        <member name="M:MeusInvestimentosApi.Services.Interfaces.ICacheService.GetFromCacheOrSource``1(System.String,System.Func{System.Threading.Tasks.Task{``0}})">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="key"></param>
+            <param name="funcCache"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MeusInvestimentosApi.Services.Interfaces.ICacheService.Remove(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="cacheKey"></param>
+        </member>
+        <member name="T:MeusInvestimentosApi.Services.Interfaces.IFundosService">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MeusInvestimentosApi.Services.Interfaces.IFundosService.ObterFundos">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:MeusInvestimentosApi.Services.Interfaces.IInvestimentosFactory">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MeusInvestimentosApi.Services.Interfaces.IInvestimentosFactory.ObterInvestimentos">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:MeusInvestimentosApi.Services.Interfaces.IRendaFixaService">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MeusInvestimentosApi.Services.Interfaces.IRendaFixaService.ObterRendaFixa">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:MeusInvestimentosApi.Services.Interfaces.ITesouroDiretoService">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MeusInvestimentosApi.Services.Interfaces.ITesouroDiretoService.ObterTesouroDireto">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:MeusInvestimentosApi.Services.InvestimentosFactory">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MeusInvestimentosApi.Services.InvestimentosFactory.#ctor(MeusInvestimentosApi.Services.Interfaces.ITesouroDiretoService,MeusInvestimentosApi.Services.Interfaces.IRendaFixaService,MeusInvestimentosApi.Services.Interfaces.IFundosService)">
+            <summary>
+            
+            </summary>
+            <param name="tesouroDiretoService"></param>
+            <param name="rendaFixaService"></param>
+            <param name="fundosDiretoService"></param>
+        </member>
+        <member name="M:MeusInvestimentosApi.Services.InvestimentosFactory.ObterInvestimentos">
             <summary>
             
             </summary>
@@ -451,12 +549,13 @@
             Class to handler with Tesouro direto
             </summary>
         </member>
-        <member name="M:MeusInvestimentosApi.Services.RendaFixaService.#ctor(Microsoft.Extensions.Options.IOptions{MeusInvestimentosApi.ConfigApi},System.Net.Http.HttpClient,Microsoft.Extensions.Logging.ILogger{MeusInvestimentosApi.Models.RendaFixa},MeusInvestimentosApi.Services.ICacheService)">
+        <member name="M:MeusInvestimentosApi.Services.RendaFixaService.#ctor(Microsoft.Extensions.Options.IOptions{MeusInvestimentosApi.ConfigApi},System.Net.Http.HttpClient,Microsoft.Extensions.Logging.ILogger{MeusInvestimentosApi.Models.RendaFixa},MeusInvestimentosApi.Services.Interfaces.ICacheService)">
             <summary>
             
             </summary>
             <param name="config"></param>
             <param name="httpClient"></param>
+            <param name="logger"></param>
             <param name="cache"></param>
         </member>
         <member name="M:MeusInvestimentosApi.Services.RendaFixaService.ObterRendaFixa">
@@ -476,12 +575,13 @@
             Class to handler with Tesouro direto
             </summary>
         </member>
-        <member name="M:MeusInvestimentosApi.Services.TesouroDiretoService.#ctor(Microsoft.Extensions.Options.IOptions{MeusInvestimentosApi.ConfigApi},System.Net.Http.HttpClient,Microsoft.Extensions.Logging.ILogger{MeusInvestimentosApi.Models.TesouroDireto},MeusInvestimentosApi.Services.ICacheService)">
+        <member name="M:MeusInvestimentosApi.Services.TesouroDiretoService.#ctor(Microsoft.Extensions.Options.IOptions{MeusInvestimentosApi.ConfigApi},System.Net.Http.HttpClient,Microsoft.Extensions.Logging.ILogger{MeusInvestimentosApi.Models.TesouroDireto},MeusInvestimentosApi.Services.Interfaces.ICacheService)">
             <summary>
             
             </summary>
             <param name="config"></param>
             <param name="httpClient"></param>
+            <param name="logger"></param>
             <param name="cache"></param>
         </member>
         <member name="M:MeusInvestimentosApi.Services.TesouroDiretoService.ObterTesouroDireto">

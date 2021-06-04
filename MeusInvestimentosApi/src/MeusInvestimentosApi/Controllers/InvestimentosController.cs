@@ -1,4 +1,4 @@
-﻿using MeusInvestimentosApi.Services;
+﻿using MeusInvestimentosApi.Services.Interfaces;
 using Microsoft.ApplicationInsights;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
@@ -16,7 +16,11 @@ namespace MeusInvestimentosApi.Controllers
 
         private readonly TelemetryClient _telemetry;
         
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="investimentosFactory"></param>
+        /// <param name="telemetry"></param>
         public InvestimentosController(IInvestimentosFactory investimentosFactory,
                                         TelemetryClient telemetry)
         {
@@ -24,6 +28,11 @@ namespace MeusInvestimentosApi.Controllers
             _telemetry = telemetry;
         }
 
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public async Task<IActionResult> List()
         {

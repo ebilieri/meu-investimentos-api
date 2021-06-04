@@ -1,4 +1,5 @@
 ﻿using MeusInvestimentosApi.Models;
+using MeusInvestimentosApi.Services.Interfaces;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using System.Collections.Generic;
@@ -21,6 +22,7 @@ namespace MeusInvestimentosApi.Services
         /// </summary>
         /// <param name="config"></param>
         /// <param name="httpClient"></param>
+        /// <param name="logger"></param>
         /// <param name="cache"></param>
         public FundosService(IOptions<ConfigApi> config,
                             HttpClient httpClient,

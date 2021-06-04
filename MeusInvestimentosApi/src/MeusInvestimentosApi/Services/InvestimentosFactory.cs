@@ -1,15 +1,25 @@
 ﻿using MeusInvestimentosApi.Models;
+using MeusInvestimentosApi.Services.Interfaces;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace MeusInvestimentosApi.Services
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class InvestimentosFactory : IInvestimentosFactory
     {
         private readonly ITesouroDiretoService _tesouroDiretoService;
         private readonly IRendaFixaService _rendaFixaService;
         private readonly IFundosService _fundosDiretoService;
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="tesouroDiretoService"></param>
+        /// <param name="rendaFixaService"></param>
+        /// <param name="fundosDiretoService"></param>
         public InvestimentosFactory(ITesouroDiretoService tesouroDiretoService,
                                     IRendaFixaService rendaFixaService,
                                     IFundosService fundosDiretoService)
@@ -19,7 +29,10 @@ namespace MeusInvestimentosApi.Services
             _fundosDiretoService = fundosDiretoService;
         }
 
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public async Task<Investimento> ObterInvestimentos()
         {
 

@@ -1,5 +1,6 @@
 using MeusInvestimentosApi.Extensions;
 using MeusInvestimentosApi.Services;
+using MeusInvestimentosApi.Services.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;

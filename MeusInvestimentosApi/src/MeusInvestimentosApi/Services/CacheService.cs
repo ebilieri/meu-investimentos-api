@@ -1,16 +1,25 @@
-﻿using Microsoft.Extensions.Caching.Memory;
+﻿using MeusInvestimentosApi.Services.Interfaces;
+using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Options;
 using System;
 using System.Threading.Tasks;
 
 namespace MeusInvestimentosApi.Services
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class CacheService : ICacheService
     {
         private readonly ConfigApi _config;
         private readonly IMemoryCache _cache;
 
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="config"></param>
+        /// <param name="cache"></param>
         public CacheService(IOptions<ConfigApi> config,
                             IMemoryCache cache)
         {
