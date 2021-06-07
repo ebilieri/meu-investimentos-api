@@ -13,5 +13,11 @@ namespace MeusInvestimentosApi.Services.Interfaces
         /// </summary>
         /// <returns></returns>
         Task<Investimento> ObterTesouroDireto();
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        Task<Investimento> ObterTesouroDiretoCalculado();
     }
 }

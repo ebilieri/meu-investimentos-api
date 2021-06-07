@@ -45,7 +45,7 @@ namespace MeusInvestimentosApi.Services
                 return ObterTesouroDiretoCalculado();
             });
 
-            if (tesouro.Investimentos?.Count == 0) _cache.Remove(cacheKey);
+            //if (tesouro.Investimentos?.Count == 0) _cache.Remove(cacheKey);
 
             return tesouro;
         }
@@ -57,7 +57,7 @@ namespace MeusInvestimentosApi.Services
         /// 
         /// </summary>
         /// <returns></returns>
-        private async Task<Investimento> ObterTesouroDiretoCalculado()
+        public async Task<Investimento> ObterTesouroDiretoCalculado()
         {
             Investimento investimento = new Investimento
             {
@@ -95,6 +95,8 @@ namespace MeusInvestimentosApi.Services
 
             return investimento;
         }
+
+        
 
     }
 }

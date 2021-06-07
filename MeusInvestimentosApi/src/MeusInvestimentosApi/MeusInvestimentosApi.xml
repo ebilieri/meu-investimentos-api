@@ -525,6 +525,12 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:MeusInvestimentosApi.Services.Interfaces.ITesouroDiretoService.ObterTesouroDiretoCalculado">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:MeusInvestimentosApi.Services.InvestimentosFactory">
             <summary>
             

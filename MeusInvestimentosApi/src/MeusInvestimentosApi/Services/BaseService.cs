@@ -27,11 +27,14 @@ namespace MeusInvestimentosApi.Services
             _logger = logger;
         }
 
+
+        
+
         /// <summary>
         /// Obter lista de rend fixa
         /// </summary>
         /// <returns></returns>
-        protected async Task<TEntity> ObterInvestimento(string uri)
+        protected  async Task<TEntity> ObterInvestimento(string uri)
         {
             var request = new HttpRequestMessage
             {
@@ -49,7 +52,7 @@ namespace MeusInvestimentosApi.Services
                 var entity = JsonConvert.DeserializeObject<TEntity>(result);
                 return entity;
             }
-            
+
 
             return null;
         }
